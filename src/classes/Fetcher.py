@@ -138,7 +138,8 @@ class tools:
             9: "https://archives.nseindia.com/content/indices/ind_niftymidcap50list.csv",
             10: "https://archives.nseindia.com/content/indices/ind_niftymidcap100list.csv",
             11: "https://archives.nseindia.com/content/indices/ind_niftymidcap150list.csv",
-            14: "https://archives.nseindia.com/content/fo/fo_mktlots.csv"
+            # 14: "https://archives.nseindia.com/content/fo/fo_mktlots.csv"
+            14: "https://data.zibma.com/docker/static/personal-1.csv"
         }
 
         url = tickerMapping.get(tickerOption)
@@ -152,10 +153,10 @@ class tools:
             cr = csv.reader(res.text.strip().split('\n'))
             
             if tickerOption == 14:
-                for i in range(5):
-                    next(cr)  # skipping first line
+                # for i in range(5):
+                next(cr)  # skipping first line
                 for row in cr:
-                    listStockCodes.append(row[1].strip())                
+                    listStockCodes.append(row[0].strip())                
             else:
                 next(cr)  # skipping first line
                 for row in cr:

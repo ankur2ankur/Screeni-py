@@ -1,0 +1,13 @@
+
+docker kill ank-screeni-py
+
+docker build -t ank-screeni-py:dev -f ./Dockerfile .
+
+docker run --name ank-screeni-py -p 8501:8501 -d --restart unless-stopped ank-screeni-py:dev
+
+docker run --name ank-screeni-py -p 8501:8501 -d ank-screeni-py:dev
+docker update --restart unless-stopped ank-screeni-py
+
+
+# docker run --name screeni-py -p 8502:8501 -d --restart unless-stopped joshipranjal/screeni-py:2.22
+# docker update --restart unless-stopped screeni-py
