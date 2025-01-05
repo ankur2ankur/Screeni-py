@@ -1,11 +1,13 @@
 
+# Kill Container
 docker kill ank-screeni-py
+docker kill ank-screeni-py-2-23
 
 # Build Image
 docker build -t ank-screeni-py:2.23 -f ./Dockerfile .
 
 # Run Image (Auto Start Mode)
-docker run --name ank-screeni-py -p 8501:8501 -d --restart unless-stopped ank-screeni-py:2.23
+docker run --name ank-screeni-py-2-23 -p 8503:8501 -d --restart unless-stopped ank-screeni-py:2.23
 
 # Run Image (And Auto Start Mode apply)
 docker run --name ank-screeni-py -p 8501:8501 -d ank-screeni-py:dev
